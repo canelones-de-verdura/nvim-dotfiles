@@ -4,16 +4,26 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+    -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
 
-  -- Colores (catppuccin/nvim)
-  use { "catppuccin/nvim", as = "catppuccin"}
+    -- Colores (catppuccin/nvim)
+    use { "catppuccin/nvim", as = "catppuccin"}
 
-  -- indent-blankline.nvim
-  use {"lukas-reineke/indent-blankline.nvim", as = "indent_blankline"}
+    -- indent-blankline.nvim
+    use {"lukas-reineke/indent-blankline.nvim", as = "indent_blankline"}
 
-  -- treesitter
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    -- treesitter
+    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
+    -- plenary.nvim (dependencia para telescope)
+    use "nvim-lua/plenary.nvim"
+
+    -- telescope.nvim
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+  
 end)

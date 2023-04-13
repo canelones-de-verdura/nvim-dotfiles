@@ -4,9 +4,6 @@ vim.g.mapleader = " "
 -- Exploro archivos con espacio+e+x
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 
--- Exploro historial de archivos con espacio+h
-vim.keymap.set("n", "<leader>h", ":browse oldfiles<Esc>")
-
 -- Mueven lo que esté seleccionado 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -21,6 +18,12 @@ vim.keymap.set("i", "jj", "<Esc>")
 -- Reemplaza la palabra bajo el cursor en todo el documento
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- Binds para telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.oldfiles, {})
 
 
 
