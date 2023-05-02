@@ -3,7 +3,7 @@ vim.opt.title = true
 -- Números de línea
 vim.opt.nu = true
 vim.opt.relativenumber = true
-vim.opt.colorcolumn = "81"
+vim.opt.colorcolumn = "80"
 vim.opt.scrolloff = 10
 vim.opt.signcolumn = "number"
 vim.opt.cursorline = true
@@ -25,37 +25,3 @@ vim.opt.termguicolors = true
 vim.cmd.colorscheme "catppuccin"
 -- Varios
 vim.opt.updatetime = 50
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
