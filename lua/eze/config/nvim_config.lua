@@ -1,5 +1,5 @@
 -- Título de la terminal
-vim.opt.title = true
+vim.opt.title = false
 -- Números de línea
 vim.opt.nu = true
 vim.opt.relativenumber = true

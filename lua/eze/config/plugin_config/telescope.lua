@@ -1,5 +1,12 @@
 require('telescope').setup{
   defaults = {
+    layout_strategy = "horizontal",
+    layout_config = {
+      horizontal = { width = 100 },
+      -- other layout configuration here
+      prompt_position = "top",
+      preview_cutoff = 0,
+    },
     -- Default configuration for telescope goes here:
     -- config_key = value,
     mappings = {
