@@ -19,6 +19,9 @@ require('telescope').setup{
     }
   },
   pickers = {
+      disable_devicons = false,
+      dir_icon_hl = "MyHighlightGroup",
+      dir_icon = require("nvim-web-devicons").get_icon_by_filetype(folder),
     -- Default configuration for builtin pickers goes here:
     -- picker_name = {
     --   picker_config_key = value,
@@ -50,10 +53,7 @@ require('telescope').setup{
       collapse_dirs = false,
       prompt_path = true,
       quiet = false,
-      dir_icon = "",
-      dir_icon_hl = "",
-      disable_devicons = true,
-      display_stat = { false },
+      display_stat = { date = true, size = true },
       hijack_netrw = true,
       use_fd = false,
       git_status = true,

@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/var/home/ezequiel/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/var/home/ezequiel/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/var/home/ezequiel/.local/share/nvim/site/pack/packer/start/packer.nvim",
