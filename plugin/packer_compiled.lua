@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "/var/home/ezequiel/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
   },
-  indent_blankline = {
-    loaded = true,
-    path = "/var/home/ezequiel/.local/share/nvim/site/pack/packer/start/indent_blankline",
-    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/var/home/ezequiel/.local/share/nvim/site/pack/packer/start/nvim-treesitter",

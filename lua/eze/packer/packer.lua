@@ -11,9 +11,6 @@ return require('packer').startup(function(use)
     -- Colores (catppuccin/nvim)
     use { "catppuccin/nvim", as = "catppuccin"}
 
-    -- indent-blankline.nvim
-    use {"lukas-reineke/indent-blankline.nvim", as = "indent_blankline"}
-
     -- treesitter
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
