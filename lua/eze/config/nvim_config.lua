@@ -23,5 +23,7 @@ vim.opt.incsearch = true
 -- Colores
 vim.opt.termguicolors = true
 vim.cmd.colorscheme "catppuccin"
+-- Status line global
+vim.opt.laststatus = 3
 -- Varios
 vim.opt.updatetime = 50
