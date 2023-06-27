@@ -21,7 +21,7 @@ require('lualine').setup {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff', 'diagnostics'},
         lualine_c = {'buffers'},
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_x = {'encoding', 'fileformat', 'filetype', 'tabs'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
     },
@@ -43,5 +43,5 @@ require('lualine').setup {
         lualine_y = {},
         lualine_z = {}
     },
-    extensions = {}
+    extensions = {'fzf'}
 }

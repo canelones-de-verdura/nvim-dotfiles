@@ -6,6 +6,8 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+    use 'junegunn/fzf'
+    use 'junegunn/fzf.vim'
     use { 
         "catppuccin/nvim",
         as = "catppuccin"

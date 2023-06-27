@@ -79,6 +79,16 @@ _G.packer_plugins = {
     path = "/home/eze/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
   },
+  fzf = {
+    loaded = true,
+    path = "/home/eze/.local/share/nvim/site/pack/packer/start/fzf",
+    url = "https://github.com/junegunn/fzf"
+  },
+  ["fzf.vim"] = {
+    loaded = true,
+    path = "/home/eze/.local/share/nvim/site/pack/packer/start/fzf.vim",
+    url = "https://github.com/junegunn/fzf.vim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/eze/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
