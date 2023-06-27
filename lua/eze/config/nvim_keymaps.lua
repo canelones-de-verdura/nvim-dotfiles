@@ -1,7 +1,7 @@
 -- Bindea espacio a la leader key
 vim.g.mapleader = " "
 -- Exploro archivos con espacio+e
-vim.keymap.set("n", "<leader>e",  vim.cmd.Vex)
+vim.keymap.set("n", "<leader>e",  vim.cmd.Lex)
 -- Mueven lo que esté seleccionado 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
