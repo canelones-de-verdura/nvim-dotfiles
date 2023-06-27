@@ -23,7 +23,17 @@ vim.opt.incsearch = true
 -- Colores
 vim.opt.termguicolors = true
 vim.cmd.colorscheme "catppuccin"
+-- Netrw (explorador de archivos)
+vim.cmd([[
+    let g:netrw_keepdir = 0
+    let g:netrw_liststyle = 3
+    let g:netrw_banner = 0
+    let g:netrw_winsize = 30
+    let g:netrw_chgwin = 2
+    let g:netrw_localcopydircmd = 'cp -r'
+]])
 -- Status line global
 vim.opt.laststatus = 3
+vim.opt.showtabline = 0
 -- Varios
 vim.opt.updatetime = 50
