@@ -1,14 +1,10 @@
 local colores = {
   verde = '#40a02b',
-  --verde = '#a6e3a1',
   celeste = '#7287fd',
-  --celeste = '#89b4fa',
   negro = '#4c4f69',
   blanco = '#eff1f5',
   naranja = '#dd7878',
   rojo = '#e64553',
-  --gris = '#bcc0cc',
-  --violeta = '#8839ef',
   gris = '#ccd0da',
   gris_oscuro = '#7c7f93',
 }
@@ -25,27 +21,17 @@ local tema = {
   replace = { a = { fg = colores.blanco, bg = colores.naranja, gui = 'bold' } },
   visual = { a = { fg = colores.blanco, bg = colores.rojo, gui = 'bold' } },
 
-  diagnostics_color = {
-    color_error = { fg = colores.rojo },
-    color_warn = { fg = colores.yellow },
-    color_info = { fg = colores.cyan },
+  inactive = {
+    a = { fg = colores.gris_oscuro, bg = colores.gris },
+    b = { fg = colores.gris_oscuro, bg = colores.blanco },
+    c = { fg = colores.gris_oscuro, bg = colores.blanco },
   },
-
-
-  --inactive = {
-    --a = { fg = colores.white, bg = colores.negro },
-    --b = { fg = colores.white, bg = colores.negro },
-    --c = { fg = colores.negro, bg = colores.negro },
-  --},
 }
 
 require('lualine').setup {
     options = {
         icons_enabled = true,
-        theme = 'auto',
-        --theme = tema,
-        --component_separators = { left = '', right = ''},
-        --section_separators = { left = '', right = ''},
+        theme = tema,
         component_separators = { left = '|', right = '|'},
         section_separators = { left = '', right = ''},
         disabled_filetypes = {
@@ -54,7 +40,7 @@ require('lualine').setup {
         },
         ignore_focus = {},
         always_divide_middle = true,
-        globalstatus = true,
+        globalstatus = false,
         refresh = {
             statusline = 1000,
             tabline = 1000,
@@ -76,8 +62,8 @@ require('lualine').setup {
                 'diff',
             },
         },
-        lualine_c = {'diagnostics'},
-        lualine_x = {},
+        lualine_c = {},
+        lualine_x = {'diagnostics'},
         lualine_y = {'filetype', 'progress'},
         lualine_z = {
             {
@@ -87,7 +73,21 @@ require('lualine').setup {
             }
         },
     },
-    inactive_sections = {},
+    inactive_sections = {
+        lualine_a = {
+            {
+                'filename',
+                separator = { left = ' ', right = '' },
+                padding = 1,
+            }
+        },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+
+    },
     tabline = {},
     winbar = {},
     inactive_winbar = {},

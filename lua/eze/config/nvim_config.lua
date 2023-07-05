@@ -31,8 +31,8 @@ vim.cmd([[
     let g:netrw_winsize = 30
     let g:netrw_localcopydircmd = 'cp -r'
 ]])
--- Status line global
-vim.opt.laststatus = 3
-vim.opt.showtabline = 0
+-- Status line
+vim.opt.laststatus = 2
+vim.opt.showtabline = 1
 -- Varios
 vim.opt.updatetime = 50
