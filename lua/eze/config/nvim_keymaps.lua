@@ -17,5 +17,3 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("i", "jj", "<Esc>")
 -- Reemplaza la palabra bajo el cursor en todo el documento
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
--- Adjunto binds de plugins
-require("eze.config.plugin_config.fzf-keymaps")
