@@ -4,8 +4,8 @@ vim.opt.title = false
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 10
-vim.opt.signcolumn = "number"
-vim.opt.cursorline = false
+vim.opt.signcolumn = "yes"
+vim.opt.cursorline = true
 vim.opt.cursorcolumn = false
 vim.opt.colorcolumn = '80'
 -- Tabs
@@ -22,7 +22,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 -- Colores
 vim.opt.termguicolors = true
-vim.opt.background = "dark"
+vim.opt.background = "light"
 -- Netrw (explorador de archivos)
 vim.cmd([[
     let g:netrw_cursor = 0
