@@ -1,2 +1,3 @@
 # nvim-dotfiles
-Configuración personal. Muy posiblemente una cagada.
+Mi configuración para Neovim. Originalmente una cagada, pero creo que ahora
+está un poco decente.

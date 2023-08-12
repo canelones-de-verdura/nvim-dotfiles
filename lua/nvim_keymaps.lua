@@ -1,5 +1,5 @@
--- Bindea espacio a la leader key
-vim.g.mapleader = " "
+-- ***binds mías***
+-- faltan las de telescope. esas están en plugins/telescope.lua.
 -- Exploro archivos con espacio+e
 vim.keymap.set("n", "<leader>e",  vim.cmd.Ex)
 -- Me muevo entre buffers
