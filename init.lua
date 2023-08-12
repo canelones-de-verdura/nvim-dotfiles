@@ -21,5 +21,5 @@ vim.g.mapleader = " "
 require("lazy").setup("plugins")
 
 -- adjunto configuración personal.
-require("nvim_config")
-require("nvim_keymaps")
+require("eze.config")
+require("eze.keymaps")
