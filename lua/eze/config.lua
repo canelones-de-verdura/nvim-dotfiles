@@ -36,5 +36,10 @@ vim.cmd([[
 vim.opt.cmdheight=1
 vim.opt.laststatus = 3
 vim.opt.showtabline = 1
+-- Desactiva el "virtual text" en los diagnósticos (<gl> para mostrar el mensaje
+-- en un "popup"
+vim.diagnostic.config({
+  virtual_text = false, -- Turn off inline diagnostics
+})
 -- Varios
 vim.opt.updatetime = 50
