@@ -41,8 +41,9 @@ return {
             options = {
                 icons_enabled = true,
                 theme = tema,
-                component_separators = { left = '', right = ''},
-                section_separators = { left = '', right = ''},
+                --😎
+                component_separators = { left = '∘', right = '∘'},
+                section_separators = { left = '', right = ''},
                 disabled_filetypes = {
                     statusline = {},
                     winbar = {},
@@ -61,7 +62,7 @@ return {
                 lualine_b = {'filename', 'branch', 'diff'},
                 lualine_c = {},
                 lualine_x = {},
-                lualine_y = {'diagnostics', 'filetype', 'progress'},
+                lualine_y = {'diagnostics', 'filetype','progress'},
                 lualine_z = {'location'}
             },
             inactive_sections = {},

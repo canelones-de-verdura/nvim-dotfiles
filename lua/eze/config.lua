@@ -23,7 +23,11 @@ vim.opt.incsearch = true
 -- Colores
 vim.opt.termguicolors = true
 vim.opt.background = "light"
--- Netrw (explorador de archivos)
+-- Status line
+vim.opt.cmdheight=1
+vim.opt.laststatus = 3
+vim.opt.showtabline = 1
+-- Netrw
 vim.cmd([[
     let g:netrw_cursor = 0
     let g:netrw_keepdir = 0
@@ -32,10 +36,6 @@ vim.cmd([[
     let g:netrw_winsize = 30
     let g:netrw_localcopydircmd = 'cp -r'
 ]])
--- Status line
-vim.opt.cmdheight=1
-vim.opt.laststatus = 3
-vim.opt.showtabline = 1
 -- Desactiva el "virtual text" en los diagnósticos (<gl> para mostrar el mensaje
 -- en un "popup"
 vim.diagnostic.config({
