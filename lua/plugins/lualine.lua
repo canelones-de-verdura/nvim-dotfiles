@@ -8,14 +8,14 @@ return {
             blanco = '#eff1f5',
             naranja = '#dd7878',
             rojo = '#e64553',
-            gris = '#ccd0da',
+            gris = '#e6e9ef',
             gris_oscuro = '#7c7f93',
         }
 
         local tema = {
             normal = {
                 a = { fg = colores.blanco, bg = colores.celeste, gui = 'bold' },
-                b = { fg = colores.gris_oscuro, bg = colores.gris },
+                b = { fg = colores.negro, bg = colores.gris },
                 c = { fg = colores.negro, bg = colores.blanco },
             },
             insert = {
@@ -41,7 +41,6 @@ return {
             options = {
                 icons_enabled = true,
                 theme = tema,
-                --😎
                 component_separators = { left = '∘', right = '∘'},
                 section_separators = { left = '', right = ''},
                 disabled_filetypes = {
@@ -59,10 +58,10 @@ return {
             },
             sections = {
                 lualine_a = {'mode'},
-                lualine_b = {'filename', 'branch', 'diff'},
-                lualine_c = {},
-                lualine_x = {},
-                lualine_y = {'diagnostics', 'filetype','progress'},
+                lualine_b = {'branch', 'filename'},
+                lualine_c = {'diff'},
+                lualine_x = {'diagnostics'},
+                lualine_y = {'filetype','progress'},
                 lualine_z = {'location'}
             },
             inactive_sections = {},
