@@ -49,7 +49,7 @@ return {
                 fields = {'abbr', 'kind', 'menu'},
                 format = require('lspkind').cmp_format({
                     -- show only symbol annotations
-                    mode = 'symbol',
+                    mode = 'symbol_text',
                     -- prevent the popup from showing more than provided
                     -- characters
                     maxwidth = 50,
