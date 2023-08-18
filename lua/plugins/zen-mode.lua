@@ -33,5 +33,17 @@ return {
                 colorcolumn = "0"
             },
         },
+        -- callback where you can add custom code when the Zen window opens
+        on_open = function(win)
+            vim.diagnostic.config({
+                virtual_text = false, -- Turn off inline diagnostics
+            })
+        end,
+        -- callback where you can add custom code when the Zen window closes
+        on_close = function()
+            vim.diagnostic.config({
+                virtual_text = true, -- Turn off inline diagnostics
+            })
+        end,
     }
 }

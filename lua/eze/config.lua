@@ -36,10 +36,5 @@ vim.cmd([[
     let g:netrw_winsize = 30
     let g:netrw_localcopydircmd = 'cp -r'
 ]])
--- Desactiva el "virtual text" en los diagnósticos (<gl> para mostrar el mensaje
--- en un "popup"
-vim.diagnostic.config({
-  virtual_text = false, -- Turn off inline diagnostics
-})
 -- Varios
 vim.opt.updatetime = 50
