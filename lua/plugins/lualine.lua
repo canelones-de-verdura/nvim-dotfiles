@@ -57,7 +57,13 @@ return {
                 }
             },
             sections = {
-                lualine_a = {'mode'},
+                lualine_a = {
+                    {
+                        'mode',
+                        icons_enabled = true,
+                        icon = '🧉',
+                    }
+                },
                 lualine_b = {'branch', 'filename'},
                 lualine_c = {'diff'},
                 lualine_x = {'diagnostics'},
