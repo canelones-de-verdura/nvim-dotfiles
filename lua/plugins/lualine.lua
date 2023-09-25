@@ -2,38 +2,35 @@ return {
     "nvim-lualine/lualine.nvim",
     config = function()
         local colores = {
-            verde = '#40a02b',
             celeste = '#7287fd',
-            negro = '#4c4f69',
-            blanco = '#eff1f5',
-            naranja = '#dd7878',
-            rojo = '#e64553',
             gris = '#e6e9ef',
-            gris_oscuro = '#7c7f93',
+            naranja = '#dd7878',
+            negro = '#4c4f69',
+            rojo = '#e64553',
+            verde = '#40a02b',
         }
 
         local tema = {
             normal = {
-                a = { fg = colores.blanco, bg = colores.celeste, gui = 'bold' },
-                b = { fg = colores.negro, bg = colores.gris },
-                c = { fg = colores.negro, bg = colores.blanco },
+                a = { fg = colores.celeste, bg = colores.gris, gui = 'bold' },
+                b = { fg = colores.negro, bg = colores.gris, gui = 'italic' },
+                c = { fg = colores.negro, bg = colores.gris, gui = 'italic'},
             },
+
             insert = {
-                a = { fg = colores.blanco, bg = colores.verde, gui = 'bold' }
+                a = { fg = colores.verde, bg = colores.gris, gui = 'bold' }
             },
+
             command = {
-                a = { fg = colores.blanco, bg = colores.naranja, gui = 'bold' }
+                a = { fg = colores.naranja, bg = colores.gris, gui = 'bold' }
             },
+
             replace = {
-                a = { fg = colores.blanco, bg = colores.naranja, gui = 'bold' }
+                a = { fg = colores.naranja, bg = colores.gris, gui = 'bold' }
             },
+
             visual = {
-                a = { fg = colores.blanco, bg = colores.rojo, gui = 'bold' }
-            },
-            inactive = {
-                a = { fg = colores.gris_oscuro, bg = colores.gris },
-                b = { fg = colores.gris_oscuro, bg = colores.blanco },
-                c = { fg = colores.gris_oscuro, bg = colores.blanco },
+                a = { fg = colores.rojo, bg = colores.gris, gui = 'bold' }
             },
         }
 
@@ -41,12 +38,8 @@ return {
             options = {
                 icons_enabled = true,
                 theme = tema,
-                component_separators = { left = '∘', right = '∘'},
-                section_separators = { left = '', right = ''},
-                disabled_filetypes = {
-                    statusline = {},
-                    winbar = {},
-                },
+                component_separators = { left = '•', right = '•'},
+                section_separators = { left = '', right = ''},
                 ignore_focus = {},
                 always_divide_middle = true,
                 globalstatus = true,
@@ -64,17 +57,17 @@ return {
                         icon = '🧉',
                     }
                 },
-                lualine_b = {'branch', 'filename'},
-                lualine_c = {'diff'},
-                lualine_x = {'diagnostics'},
-                lualine_y = {'filetype','progress'},
-                lualine_z = {'location'}
+
+                lualine_b = {'branch', 'filename', 'diff'},
+
+                lualine_c = {},
+
+                lualine_x = {},
+
+                lualine_y = {'diagnostics','filetype','progress','location'},
+
+                lualine_z = {},
             },
-            inactive_sections = {},
-            tabline = {},
-            winbar = {},
-            inactive_winbar = {},
-            extensions = {}
         }
     end,
 }
