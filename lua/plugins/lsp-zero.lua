@@ -17,6 +17,12 @@ return {
             -- to learn the available actions
             lsp_zero.default_keymaps({buffer = bufnr})
         end)
+        -- Desactivo el resaltado de sintaxis
+        lsp_zero.set_server_config({
+            on_init = function(client)
+                client.server_capabilities.semanticTokensProvider = nil
+            end,
+        })
         require('mason').setup({})
         require('mason-lspconfig').setup({
             ensure_installed = {},
@@ -30,7 +36,7 @@ return {
         cmp.setup({
             mapping = cmp.mapping.preset.insert({
                  -- `Enter` key to confirm completion
-                ['<CR>'] = cmp.mapping.confirm({select = false}),
+                ['<CR>'] = cmp.mapping.confirm({select = true}),
 
                 -- Ctrl+Space to trigger completion menu
                 ['<C-Space>'] = cmp.mapping.complete(),
