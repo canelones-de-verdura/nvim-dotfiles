@@ -1,42 +1,35 @@
 return {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    branch = 'v3.x',
     dependencies = {
-        -- LSP Support
-        {'neovim/nvim-lspconfig'},             -- Required
-        {'williamboman/mason.nvim'},           -- Optional
-        {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-        -- Autocompletion
-        {'hrsh7th/nvim-cmp'},     -- Required
-        {'hrsh7th/cmp-nvim-lsp'}, -- Required
-        {'L3MON4D3/LuaSnip'},     -- Required
+        {'williamboman/mason.nvim'},
+        {'williamboman/mason-lspconfig.nvim'},
+        {'neovim/nvim-lspconfig'},
+        {'hrsh7th/cmp-nvim-lsp'},
+        {'hrsh7th/nvim-cmp'},
+        {'L3MON4D3/LuaSnip'},
     },
+
     config = function()
-        local lsp = require('lsp-zero').preset({})
-        lsp.on_attach(function(client, bufnr)
-            lsp.default_keymaps({buffer = bufnr})
+        local lsp_zero = require('lsp-zero')
+        lsp_zero.on_attach(function(client, bufnr)
+            -- see :help lsp-zero-keybindings
+            -- to learn the available actions
+            lsp_zero.default_keymaps({buffer = bufnr})
         end)
-        lsp.set_server_config({
-            on_init = function(client)
-                client.server_capabilities.semanticTokensProvider = nil
-            end,
+        require('mason').setup({})
+        require('mason-lspconfig').setup({
+            ensure_installed = {},
+            handlers = {
+                lsp_zero.default_setup,
+            },
         })
-        -- (Optional) Configure lua language server for neovim
-        require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-        lsp.set_sign_icons({
-            error = '✘',
-            warn = '▲',
-            hint = '⚑',
-            info = '»'
-        })
-        lsp.setup()
-        -- You need to setup `cmp` after lsp-zero
+
         local cmp = require('cmp')
         local cmp_action = require('lsp-zero').cmp_action()
         cmp.setup({
-            mapping = {
-                -- `Enter` key to confirm completion
+            mapping = cmp.mapping.preset.insert({
+                 -- `Enter` key to confirm completion
                 ['<CR>'] = cmp.mapping.confirm({select = false}),
 
                 -- Ctrl+Space to trigger completion menu
@@ -45,7 +38,11 @@ return {
                 -- Navigate between snippet placeholder
                 ['<C-f>'] = cmp_action.luasnip_jump_forward(),
                 ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-            },
+
+                -- Scroll up and down in the completion documentation
+                ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+                ['<C-d>'] = cmp.mapping.scroll_docs(4),
+            }), 
             window = {
                 completion = cmp.config.window.bordered(),
                 documentation = cmp.config.window.bordered(),
