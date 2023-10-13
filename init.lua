@@ -22,4 +22,3 @@ require("lazy").setup("plugins")
 
 -- adjunto configuración personal.
 require("eze.config")
-require("eze.keymaps")
