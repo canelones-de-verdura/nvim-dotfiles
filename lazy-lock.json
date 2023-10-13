@@ -2,7 +2,7 @@
   "LuaSnip": { "branch": "master", "commit": "cdbf6f41381e5ee4810b4b09284b603d8f18365d" },
   "catppuccin": { "branch": "main", "commit": "fc537040147f0374a22b88142a20eb6781141f0b" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "44b16d11215dce86f253ce0c30949813c0a90765" },
-  "lazy.nvim": { "branch": "main", "commit": "6687afae42b72fb660bfae2bd0eb98e77156829b" },
+  "lazy.nvim": { "branch": "main", "commit": "276e572f645430bcfd6fd25faa301ea9077f6ab1" },
   "lsp-zero.nvim": { "branch": "v3.x", "commit": "22677c535fdc11a73da67a186a30e360d8857497" },
   "lspkind.nvim": { "branch": "master", "commit": "57610d5ab560c073c465d6faf0c19f200cb67e6e" },
   "lualine.nvim": { "branch": "master", "commit": "45e27ca739c7be6c49e5496d14fcf45a303c3a63" },
