@@ -58,7 +58,34 @@ return {
                     }
                 },
 
-                lualine_b = {'branch', 'filename', 'diff'},
+                lualine_b = {
+                    {
+                        'branch'
+                    },
+                    {
+                        'diff'
+                    },
+                    {
+                        'buffers',
+                        buffers_color = {
+                            active = {
+                                fg = colores.negro,
+                                bg = colores.gris,
+                                gui='italic,bold'
+                            },
+                            inactive = {
+                                fg = colores.negro,
+                                bg = colores.gris,
+                                gui='italic'
+                            },
+                        },
+                        symbols = {
+                            modified = ' ●',
+                            alternate_file = '',
+                            directory =  '',
+                      },
+                    }
+                },
 
                 lualine_c = {},
 

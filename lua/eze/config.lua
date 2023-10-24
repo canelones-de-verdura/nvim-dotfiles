@@ -40,6 +40,7 @@ vim.g.netrw_localcopydircmd = 'cp -r'
 vim.keymap.set("n", "<leader>e",  vim.cmd.Ex)
 -- Me muevo entre buffers
 vim.keymap.set("n", "<Tab>",  vim.cmd.bn)
+vim.keymap.set("n", "<S-Tab>",  vim.cmd.bp)
 -- Cierro buffers
 vim.keymap.set("n", "<leader>c", vim.cmd.bd)
 -- Mueven lo que esté seleccionado 
