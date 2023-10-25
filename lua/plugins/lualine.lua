@@ -67,6 +67,7 @@ return {
                     },
                     {
                         'buffers',
+                        max_length = vim.o.columns * 2 / 3,
                         buffers_color = {
                             active = {
                                 fg = colores.negro,
@@ -80,7 +81,7 @@ return {
                             },
                         },
                         symbols = {
-                            modified = ' ●',
+                            modified = ' 🖉 ',
                             alternate_file = '',
                             directory =  '',
                       },
