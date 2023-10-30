@@ -81,7 +81,7 @@ return {
                             },
                         },
                         symbols = {
-                            modified = ' 🖉 ',
+                            modified = ' ✎ ',
                             alternate_file = '',
                             directory =  '',
                       },

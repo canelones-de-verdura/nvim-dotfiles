@@ -38,6 +38,9 @@ vim.g.netrw_localcopydircmd = 'cp -r'
 -- Faltan las de telescope y nvim-cmp. Esas están en plugins/.
 -- Exploro archivos con espacio+e
 vim.keymap.set("n", "<leader>e",  vim.cmd.Ex)
+-- Salgo de insert mode
+vim.keymap.set("i", "jk", "<Esc>")
+vim.keymap.set("i", "kj", "<Esc>")
 -- Me muevo entre buffers
 vim.keymap.set("n", "<Tab>",  vim.cmd.bn)
 vim.keymap.set("n", "<S-Tab>",  vim.cmd.bp)
