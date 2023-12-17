@@ -53,43 +53,29 @@ return {
                         icon = '🧉',
                     }
                 },
-
                 lualine_b = {
+                    {
+                        'filename',
+                        file_status = true,
+                        path = 0,
+                        shorting_target = 40,
+                        symbols = {
+                            modified = '[+]',
+                            readonly = '[-]',
+                            unnamed = '[No Name]',
+                            newfile = '[New]',
+                        },
+                    },
                     {
                         'branch'
                     },
                     {
                         'diff'
-                    },
-                    {
-                        'buffers',
-                        max_length = vim.o.columns * 2 / 3,
-                        buffers_color = {
-                            active = {
-                                fg = colores.negro,
-                                bg = colores.gris,
-                                gui='italic,bold'
-                            },
-                            inactive = {
-                                fg = colores.negro,
-                                bg = colores.gris,
-                                gui='italic'
-                            },
-                        },
-                        symbols = {
-                            modified = ' ✎ ',
-                            alternate_file = '',
-                            directory =  '',
-                      },
                     }
                 },
-
                 lualine_c = {},
-
                 lualine_x = {},
-
                 lualine_y = {'diagnostics','filetype','progress','location'},
-
                 lualine_z = {},
             },
         }
