@@ -14,21 +14,17 @@ return {
             normal = {
                 a = { fg = colores.celeste, bg = colores.gris, gui = 'bold' },
                 b = { fg = colores.negro, bg = colores.gris, gui = 'italic' },
-                c = { fg = colores.negro, bg = colores.gris, gui = 'italic'},
+                c = { fg = colores.negro, bg = colores.gris, gui = 'italic' },
             },
-
             insert = {
                 a = { fg = colores.verde, bg = colores.gris, gui = 'bold' }
             },
-
             command = {
                 a = { fg = colores.naranja, bg = colores.gris, gui = 'bold' }
             },
-
             replace = {
                 a = { fg = colores.naranja, bg = colores.gris, gui = 'bold' }
             },
-
             visual = {
                 a = { fg = colores.rojo, bg = colores.gris, gui = 'bold' }
             },
@@ -38,8 +34,8 @@ return {
             options = {
                 icons_enabled = true,
                 theme = tema,
-                component_separators = { left = '•', right = '•'},
-                section_separators = { left = '', right = ''},
+                component_separators = { left = '•', right = '•' },
+                section_separators = { left = '', right = '' },
                 ignore_focus = {},
                 always_divide_middle = true,
                 globalstatus = true,

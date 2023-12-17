@@ -28,6 +28,13 @@ vim.opt.cmdheight=1
 vim.opt.laststatus = 3
 vim.opt.showtabline = 1
 vim.opt.showmode = false
+-- Folds
+vim.cmd('highlight Folded guibg=#eff1f5 guifg=#9ca0b0')
+vim.opt.fillchars = { fold = " " }
+vim.opt.foldmethod = "indent"
+vim.opt.foldenable = false
+vim.opt.foldlevel = 99
+vim.opt.foldcolumn = '0'
 -- Netrw
 vim.g.netrw_banner = 0
 vim.g.netrw_cursor = 0
