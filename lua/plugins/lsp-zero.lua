@@ -24,7 +24,11 @@ return {
                 client.server_capabilities.semanticTokensProvider = nil
             end,
         })
-        require('mason').setup({})
+        require('mason').setup({
+            ui = {
+                border = "double",
+            },
+        })
         require('mason-lspconfig').setup({
             ensure_installed = {},
             handlers = {

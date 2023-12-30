@@ -18,7 +18,14 @@ vim.g.mapleader = " "
 
 -- adjunto la carpeta donde van a ir los plugins. no quiero un archivo de 500
 -- líneas.
-require("lazy").setup("plugins")
+require("lazy").setup(
+    "plugins",
+    {
+        ui = {
+            border = "double",
+        },
+    }
+)
 
 -- adjunto configuración personal.
 require("eze.config")
