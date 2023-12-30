@@ -7,7 +7,7 @@ vim.opt.scrolloff = 10
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = false
-vim.opt.colorcolumn = '80'
+vim.opt.colorcolumn = '0'
 -- Tabs
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
