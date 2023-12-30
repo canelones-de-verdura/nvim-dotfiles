@@ -1,32 +1,24 @@
 return {
     "nvim-lualine/lualine.nvim",
     config = function()
-        local colores = {
-            celeste = '#7287fd',
-            gris = '#e6e9ef',
-            naranja = '#dd7878',
-            negro = '#4c4f69',
-            rojo = '#e64553',
-            verde = '#40a02b',
-        }
-
+        local latte = require("catppuccin.palettes").get_palette "latte"
         local tema = {
             normal = {
-                a = { fg = colores.celeste, bg = colores.gris, gui = 'bold' },
-                b = { fg = colores.negro, bg = colores.gris, gui = 'italic' },
-                c = { fg = colores.negro, bg = colores.gris, gui = 'italic' },
+                a = { fg = latte.lavender,  bg = latte.mantle,  gui = 'bold' },
+                b = { fg = latte.text,      bg = latte.mantle,  gui = 'italic' },
+                c = { fg = latte.text,      bg = latte.mantle,  gui = 'italic' },
             },
             insert = {
-                a = { fg = colores.verde, bg = colores.gris, gui = 'bold' }
+                a = { fg = latte.green,     bg = latte.mantle,  gui = 'bold' }
             },
             command = {
-                a = { fg = colores.naranja, bg = colores.gris, gui = 'bold' }
+                a = { fg = latte.flamingo,  bg = latte.mantle,  gui = 'bold' }
             },
             replace = {
-                a = { fg = colores.naranja, bg = colores.gris, gui = 'bold' }
+                a = { fg = latte.flamingo,  bg = latte.mantle,  gui = 'bold' }
             },
             visual = {
-                a = { fg = colores.rojo, bg = colores.gris, gui = 'bold' }
+                a = { fg = latte.maroon,    bg = latte.mantle,  gui = 'bold' }
             },
         }
 

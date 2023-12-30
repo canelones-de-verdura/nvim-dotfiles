@@ -6,7 +6,15 @@ return {
     config = function()
         require("catppuccin").setup {
             flavour = "latte",
+            -- Cambio el color de los recuadros
+            custom_highlights = function(colors)
+                return {
+                    FloatBorder = { fg = colors.overlay0 },
+                    Folded = { fg = colors.overlay0, bg = colors.base }
+                }
+            end,
             integrations = {
+                alpha = true,
                 cmp = true,
                 treesitter = true,
                 mason = true,

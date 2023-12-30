@@ -29,7 +29,6 @@ vim.opt.laststatus = 3
 vim.opt.showtabline = 1
 vim.opt.showmode = false
 -- Folds
-vim.cmd('highlight Folded guibg=#eff1f5 guifg=#9ca0b0')
 vim.opt.fillchars = { fold = " " }
 vim.opt.foldmethod = "indent"
 vim.opt.foldenable = false
