@@ -24,12 +24,12 @@ return {
                 client.server_capabilities.semanticTokensProvider = nil
             end,
         })
-        -- Uso íconos para los diagnósticos, en vex de letras
+        -- Uso íconos para los diagnósticos, en vez de letras
         lsp_zero.set_sign_icons({
-            error = '✘',
-            warn = '▲',
-            hint = '⚑',
-            info = '»'
+            error = '',
+            warn  = '',
+            hint  = '󰌵',
+            info  = ''
         })
         require('mason').setup({
             ui = {
