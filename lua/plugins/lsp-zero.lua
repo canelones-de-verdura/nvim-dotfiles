@@ -24,6 +24,13 @@ return {
                 client.server_capabilities.semanticTokensProvider = nil
             end,
         })
+        -- Uso íconos para los diagnósticos, en vex de letras
+        lsp_zero.set_sign_icons({
+            error = '✘',
+            warn = '▲',
+            hint = '⚑',
+            info = '»'
+        })
         require('mason').setup({
             ui = {
                 border = "double",
@@ -53,10 +60,6 @@ return {
                 -- Scroll up and down in the completion documentation
                 ['<C-u>'] = cmp.mapping.scroll_docs(-4),
                 ['<C-d>'] = cmp.mapping.scroll_docs(4),
-
-                -- Selecciono opciones del menú
-                ['<C-j>'] = cmp.mapping.select_next_item(),
-                ['<C-k>'] = cmp.mapping.select_prev_item(),
             }),
                 window = {
                     completion = cmp.config.window.bordered(),
