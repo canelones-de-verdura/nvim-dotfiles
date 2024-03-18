@@ -32,9 +32,6 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.breakindent = true
--- Muestra los espacios en blanco en líneas "vacías"
-vim.opt.list = true
-vim.opt.listchars = { tab = '  ', trail = '·' }
 -- El swap file me re rompe las bolas
 vim.opt.swapfile = false
 vim.opt.backup = false
