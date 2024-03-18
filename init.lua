@@ -34,12 +34,10 @@ vim.opt.smartindent = true
 vim.opt.breakindent = true
 -- Muestra los espacios en blanco en líneas "vacías"
 vim.opt.list = true
-vim.opt.listchars = { trail = '·' }
+vim.opt.listchars = { tab = '  ', trail = '·' }
 -- El swap file me re rompe las bolas
 vim.opt.swapfile = false
 vim.opt.backup = false
--- Portapapeles
-vim.opt.clipboard = 'unnamedplus'
 -- Opciones de búsqueda
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
@@ -65,6 +63,8 @@ vim.g.netrw_banner = 0
 vim.g.netrw_cursor = 0
 vim.g.netrw_keepdir = 0
 vim.g.netrw_liststyle = 0
+vim.g.netrw_winsize = 30
+vim.g.netrw_preview = 1
 vim.g.netrw_localcopydircmd = 'cp -r'
 
 -- Binds
@@ -74,7 +74,7 @@ vim.g.mapleader = " "
 -- Borro el resaltado de búsqueda con esc
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Exploro archivos con espacio+e
-vim.keymap.set("n", "<leader>e",  vim.cmd.Ex)
+vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
 -- Salgo de insert mode
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("i", "kj", "<Esc>")

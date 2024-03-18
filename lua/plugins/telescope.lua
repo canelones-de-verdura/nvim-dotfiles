@@ -7,6 +7,7 @@ return {
         vim.keymap.set('n', '<leader>g', builtin.live_grep, {})
         vim.keymap.set('n', '<leader>b', builtin.buffers, {})
         vim.keymap.set('n', '<leader>h', builtin.oldfiles, {})
+        vim.keymap.set('n', '<leader>d', builtin.diagnostics, {})
         vim.keymap.set('n', '<leader>?', builtin.help_tags, {})
         require("telescope").setup {}
     end,
