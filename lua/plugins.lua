@@ -56,22 +56,33 @@ return {
         end,
     },
 
-    -- Lsp
+    -- Soporte de lenguajes
     {
-        'VonHeikemen/lsp-zero.nvim',
+        "VonHeikemen/lsp-zero.nvim",
         branch = 'v3.x',
         dependencies = {
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
-            {'neovim/nvim-lspconfig'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'hrsh7th/nvim-cmp'},
-            {'L3MON4D3/LuaSnip'},
-            {'onsails/lspkind.nvim'},
+            {"williamboman/mason.nvim"},
+            {"williamboman/mason-lspconfig.nvim"},
+            {"neovim/nvim-lspconfig"},
+            {"hrsh7th/cmp-nvim-lsp"},
+            {"hrsh7th/nvim-cmp"},
+            {"L3MON4D3/LuaSnip"},
+            {"onsails/lspkind.nvim"},
         },
         config = function()
             require "configs.lsp-zero"
         end,
+    },
+
+    {
+        "mfussenegger/nvim-lint",
+        event = {
+            "BufReadPre",
+            "BufNewFile",
+        },
+        config = function ()
+            require "configs.nvim-lint"
+        end
     },
 
 }
