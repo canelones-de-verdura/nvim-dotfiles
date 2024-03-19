@@ -1,5 +1,4 @@
--- [[ Instalamos Lazy para administrar paquetes ]] --
---
+--[[ Instalamos Lazy para administrar paquetes ]]
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -13,8 +12,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- [[ Config personal ]] --
---
+--[[ Config personal ]]
 -- Título de la terminal
 vim.opt.title = false
 -- Números de línea
@@ -101,8 +99,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- [[ Adjunto plugins ]] --
---
+--[[ Adjunto plugins ]]
 require("lazy").setup(
     "plugins",
     {
