@@ -18,14 +18,6 @@ return {
         end,
     },
 
-    -- Pantalla de inicio
-    {
-        "goolord/alpha-nvim",
-        config = function ()
-            require "configs.alpha"
-        end,
-    },
-
     -- Íconos
     {
         "nvim-tree/nvim-web-devicons",
