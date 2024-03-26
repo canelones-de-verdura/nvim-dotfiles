@@ -8,7 +8,6 @@ require("catppuccin").setup {
         }
     end,
     integrations = {
-        alpha = true,
         cmp = true,
         treesitter = true,
         mason = true,
