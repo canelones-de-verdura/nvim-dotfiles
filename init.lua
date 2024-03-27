@@ -63,7 +63,7 @@ vim.g.netrw_preview = 1
 vim.g.netrw_localcopydircmd = 'cp -r'
 
 -- Binds
--- Faltan las de telescope y nvim-cmp. Esas están en plugins/.
+-- Faltan las de telescope, nvim-cmp y gitsigns. Esas están en lua/configs/.
 -- Leader key
 vim.g.mapleader = " "
 -- Borro el resaltado de búsqueda con esc
