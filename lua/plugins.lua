@@ -1,5 +1,4 @@
 return {
-
     -- Colores
     {
         "catppuccin/nvim",
@@ -13,7 +12,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        config = function ()
+        config = function()
             require "configs.treesitter"
         end,
     },
@@ -21,6 +20,7 @@ return {
     -- Íconos
     {
         "nvim-tree/nvim-web-devicons",
+        lazy = true,
     },
 
     -- Statusline
@@ -45,43 +45,25 @@ return {
 
     -- Manipular archivos
     {
-        'nvim-telescope/telescope.nvim',
-        branch = '0.1.x',
+        "nvim-telescope/telescope.nvim",
+        branch = "0.1.x",
         dependencies = {
-            'nvim-lua/plenary.nvim'
+            "nvim-lua/plenary.nvim"
         },
         config = function()
             require "configs.telescope"
         end,
     },
 
-    -- Soporte de lenguajes
+    -- LSP
     {
-        "VonHeikemen/lsp-zero.nvim",
-        branch = 'v3.x',
+        "williamboman/mason.nvim",
         dependencies = {
-            {"williamboman/mason.nvim"},
-            {"williamboman/mason-lspconfig.nvim"},
-            {"neovim/nvim-lspconfig"},
-            {"hrsh7th/cmp-nvim-lsp"},
-            {"hrsh7th/nvim-cmp"},
-            {"L3MON4D3/LuaSnip"},
-            {"onsails/lspkind.nvim"},
+            "williamboman/mason-lspconfig.nvim",
+            "neovim/nvim-lspconfig",
         },
         config = function()
-            require "configs.lsp-zero"
-        end,
-    },
-
-    {
-        "mfussenegger/nvim-lint",
-        event = {
-            "BufReadPre",
-            "BufNewFile",
-        },
-        config = function ()
-            require "configs.nvim-lint"
+            require "configs.lsp"
         end
     },
-
 }

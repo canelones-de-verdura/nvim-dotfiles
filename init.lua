@@ -37,10 +37,10 @@ vim.opt.backup = false
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 -- Colores
-vim.opt.termguicolors = true
+--vim.opt.termguicolors = true
 vim.opt.background = "light"
 -- Status line
-vim.opt.cmdheight=1
+vim.opt.cmdheight = 1
 vim.opt.laststatus = 3
 vim.opt.showtabline = 1
 vim.opt.showmode = false
@@ -71,14 +71,14 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Exploro archivos con espacio+e
 vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
 -- Salgo de insert mode
-vim.keymap.set("i", "jk", "<Esc>")
-vim.keymap.set("i", "kj", "<Esc>")
+--vim.keymap.set("i", "jk", "<Esc>")
+--vim.keymap.set("i", "kj", "<Esc>")
 -- Me muevo entre buffers
-vim.keymap.set("n", "<Tab>",  vim.cmd.bn)
-vim.keymap.set("n", "<S-Tab>",  vim.cmd.bp)
+vim.keymap.set("n", "<Tab>", vim.cmd.bn)
+vim.keymap.set("n", "<S-Tab>", vim.cmd.bp)
 -- Cierro buffers
 vim.keymap.set("n", "<leader>c", vim.cmd.bd)
--- Mueven lo que esté seleccionado 
+-- Mueven lo que esté seleccionado
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- Centran la vista mientras me desplazo
@@ -100,11 +100,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 --[[ Adjunto plugins ]]
-require("lazy").setup(
-    "plugins",
-    {
-        ui = {
-            border = "double",
-        },
-    }
-)
+require("lazy").setup("plugins")
