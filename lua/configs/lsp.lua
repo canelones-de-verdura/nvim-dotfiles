@@ -1,4 +1,4 @@
--- Mason
+--[[ Mason ]]
 require("mason").setup()
 require("mason-lspconfig").setup()
 require("mason-lspconfig").setup_handlers {
@@ -7,9 +7,7 @@ require("mason-lspconfig").setup_handlers {
     end,
 }
 
--- Setup language servers.
-local lspconfig = require('lspconfig')
-
+--[[ nvim-lspconfig ]]
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', 'gl', vim.diagnostic.open_float)
@@ -24,6 +22,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     -- Enable completion triggered by <c-x><c-o>
     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Inlay hints
+    vim.lsp.inlay_hint.enable()
 
     -- Buffer local mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
