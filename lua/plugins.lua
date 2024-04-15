@@ -60,10 +60,17 @@ return {
         "williamboman/mason.nvim",
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
-            "neovim/nvim-lspconfig",
         },
         config = function()
-            require "configs.lsp"
-        end
+            require "configs.mason"
+        end,
+    },
+
+    {
+        "neovim/nvim-lspconfig",
+        event = { "BufReadPost", "BufNewFile" },
+        config = function()
+            require "configs.lspconfig"
+        end,
     },
 }

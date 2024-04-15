@@ -1,8 +1,9 @@
 require("catppuccin").setup {
     flavour = "latte",
-    -- Cambio el color de los recuadros
+    -- Cambio el color de los recuadros, folds, etc
     custom_highlights = function(colors)
         return {
+            netrwTreeBar = {fg = colors.overlay0 },
             FloatBorder = { fg = colors.overlay0 },
             Folded = { fg = colors.overlay0, bg = colors.base }
         }

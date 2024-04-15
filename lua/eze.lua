@@ -43,21 +43,18 @@ vim.opt.splitbelow = false
 vim.g.netrw_banner = 0
 vim.g.netrw_cursor = 0
 vim.g.netrw_keepdir = 0
-vim.g.netrw_liststyle = 0
+vim.g.netrw_liststyle = 3
 vim.g.netrw_winsize = 30
 vim.g.netrw_preview = 1
 vim.g.netrw_localcopydircmd = 'cp -r'
 -- Binds
--- Faltan las de telescope, nvim-cmp y gitsigns. Esas están en lua/configs/.
+-- Faltan las de telescope, nvim-lspconfig y gitsigns. Esas están en configs/.
 -- Leader key
 vim.g.mapleader = " "
 -- Borro el resaltado de búsqueda con esc
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Exploro archivos con espacio+e
-vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
--- Salgo de insert mode
---vim.keymap.set("i", "jk", "<Esc>")
---vim.keymap.set("i", "kj", "<Esc>")
+vim.keymap.set('n', '<leader>e', vim.cmd.Lex)
 -- Me muevo entre buffers
 vim.keymap.set("n", "<Tab>", vim.cmd.bn)
 vim.keymap.set("n", "<S-Tab>", vim.cmd.bp)
@@ -71,6 +68,14 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- Reemplaza la palabra bajo el cursor en todo el documento
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+-- Completado
+-- Omnicompletion
+vim.keymap.set("i", "<C-o>", "<C-x><C-o>")
+-- File completion
+vim.keymap.set("i", "<C-f>", "<C-x><C-f>")
+-- Close completion
+vim.keymap.set("i", "<C-z>", "<C-x><C-z>")
+
 -- Autocommands
 -- Highlight when yanking (copying) text - Afanado de kickstart.nvim
 vim.api.nvim_create_autocmd('TextYankPost', {
