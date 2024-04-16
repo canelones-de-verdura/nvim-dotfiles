@@ -23,7 +23,7 @@ vim.opt.backup = false
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 -- Colores
---vim.opt.termguicolors = true
+vim.opt.termguicolors = true
 vim.opt.background = "light"
 -- Status line
 vim.opt.cmdheight = 1
@@ -46,7 +46,11 @@ vim.g.netrw_keepdir = 0
 vim.g.netrw_liststyle = 3
 vim.g.netrw_winsize = 30
 vim.g.netrw_preview = 1
+vim.g.netrw_browse_split = 4
 vim.g.netrw_localcopydircmd = 'cp -r'
+-- Completion menu
+vim.opt.completeopt = "menu,menuone,popup,noinsert"
+vim.opt.pumblend = 15 -- Transparencia
 -- Binds
 -- Faltan las de telescope, nvim-lspconfig y gitsigns. Esas están en configs/.
 -- Leader key
@@ -54,7 +58,7 @@ vim.g.mapleader = " "
 -- Borro el resaltado de búsqueda con esc
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Exploro archivos con espacio+e
-vim.keymap.set('n', '<leader>e', vim.cmd.Lex)
+vim.keymap.set('n', '<leader>e', vim.cmd.Vex)
 -- Me muevo entre buffers
 vim.keymap.set("n", "<Tab>", vim.cmd.bn)
 vim.keymap.set("n", "<S-Tab>", vim.cmd.bp)
@@ -75,7 +79,6 @@ vim.keymap.set("i", "<C-o>", "<C-x><C-o>")
 vim.keymap.set("i", "<C-f>", "<C-x><C-f>")
 -- Close completion
 vim.keymap.set("i", "<C-z>", "<C-x><C-z>")
-
 -- Autocommands
 -- Highlight when yanking (copying) text - Afanado de kickstart.nvim
 vim.api.nvim_create_autocmd('TextYankPost', {
