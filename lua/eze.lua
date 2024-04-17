@@ -49,7 +49,7 @@ vim.g.netrw_preview = 1
 vim.g.netrw_browse_split = 4
 vim.g.netrw_localcopydircmd = 'cp -r'
 -- Completion menu
-vim.opt.completeopt = "menu,menuone,popup,noinsert"
+vim.opt.completeopt = "menu,menuone,popup"
 vim.opt.pumblend = 15 -- Transparencia
 -- Binds
 -- Faltan las de telescope, nvim-lspconfig y gitsigns. Esas están en configs/.
