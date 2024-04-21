@@ -6,7 +6,7 @@ local gitbranch = function()
         return ""
     end
 
-    return " ·  " .. branch
+    return "·  " .. branch
 end
 
 local gitstatus = function()
@@ -59,7 +59,7 @@ end
 function FileInfo()
     local ft = vim.bo.filetype
     if ft ~= "" then
-        return "󰣖 "..ft .. diagnostics() .. " · "
+        return "󰣖 "..ft .. diagnostics() .. " ·"
     end
 
     return ft
@@ -69,10 +69,10 @@ end
 local statusline = {
     "🧉",
     " %t%r%m",
-    "%{%v:lua.Git()%}",
+    " %{%v:lua.Git()%} ",
     "%=", -- Mitad
-    "%{%v:lua.FileInfo()%}",
-    "Ln %l, Col %c : %P ",
+    " %{%v:lua.FileInfo()%} ",
+    "Ln %l, Col %c : %P %<",
 }
 
 vim.o.statusline = table.concat(statusline)
