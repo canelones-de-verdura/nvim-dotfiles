@@ -91,3 +91,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 -- Varios
 vim.opt.updatetime = 50
+require("configs.statusline")

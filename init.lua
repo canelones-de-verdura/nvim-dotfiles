@@ -14,7 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 
 --[[ Adjunto mi config ]]
 require("eze")
-require("statusline")
 
 --[[ Adjunto plugins ]]
 require("lazy").setup("plugins")
