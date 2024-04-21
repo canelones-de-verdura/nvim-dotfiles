@@ -29,7 +29,7 @@ vim.opt.background = "light"
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 2
 vim.opt.showtabline = 1
-vim.opt.showmode = false
+vim.opt.showmode = true
 -- Folds
 vim.opt.fillchars = { fold = " " }
 vim.opt.foldmethod = "indent"

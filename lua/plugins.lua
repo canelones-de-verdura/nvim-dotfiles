@@ -23,16 +23,6 @@ return {
         lazy = true,
     },
 
-    -- Statusline
-    --[[
-    {
-        "nvim-lualine/lualine.nvim",
-        config = function()
-            require "configs.lualine"
-        end,
-    },
-    ]]
-
     -- Git
     {
         "tpope/vim-fugitive",
