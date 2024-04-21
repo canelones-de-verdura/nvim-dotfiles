@@ -72,7 +72,7 @@ local statusline = {
     " %{%v:lua.Git()%} ",
     "%=", -- Mitad
     " %{%v:lua.FileInfo()%} ",
-    "Ln %l, Col %c : %P %<",
+    "󰦪 Ln %l, Col %c : %P %<",
 }
 
 vim.o.statusline = table.concat(statusline)
