@@ -27,7 +27,7 @@ vim.opt.termguicolors = true
 vim.opt.background = "light"
 -- Status line
 vim.opt.cmdheight = 1
-vim.opt.laststatus = 3
+vim.opt.laststatus = 2
 vim.opt.showtabline = 1
 vim.opt.showmode = false
 -- Folds
