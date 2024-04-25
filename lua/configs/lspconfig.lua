@@ -13,8 +13,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Enable completion triggered by <c-x><c-o>
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-        -- Inlay hints
-        vim.lsp.inlay_hint.enable()
+        -- Inlay hints - todavía no funca
+        --[[vim.lsp.inlay_hint.enable()]]
 
         -- Signcolumn Icons
         local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }

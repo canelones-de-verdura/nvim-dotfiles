@@ -38,7 +38,7 @@ vim.opt.foldlevel = 99
 vim.opt.foldcolumn = '0'
 -- Splits
 vim.opt.splitright = true
-vim.opt.splitbelow = false
+vim.opt.splitbelow = true
 -- Netrw
 vim.g.netrw_banner = 0
 vim.g.netrw_cursor = 0
@@ -49,7 +49,8 @@ vim.g.netrw_preview = 1
 vim.g.netrw_browse_split = 0
 vim.g.netrw_localcopydircmd = 'cp -r'
 -- Completion menu
-vim.opt.completeopt = "menu,menuone,popup"
+vim.opt.completeopt = "menu,menuone"
+--vim.opt.completeopt = "menu,menuone,preview"
 vim.opt.pumblend = 15 -- Transparencia
 -- Binds
 -- Faltan las de telescope, nvim-lspconfig y gitsigns. Esas están en configs/.
