@@ -11,10 +11,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     callback = function(ev)
         -- Enable completion triggered by <c-x><c-o>
-        vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+        -- Por ahora comentado, porque tiene conflictos con nvim-cmp
+        -- vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
         -- Inlay hints - todavía no funca
-        --[[vim.lsp.inlay_hint.enable()]]
+        vim.lsp.inlay_hint.enable()
 
         -- Signcolumn Icons
         local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
@@ -45,3 +46,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end, opts)
     end,
 })
+
+-- Configuramos los servers para usar cmp
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+require("mason-lspconfig").setup_handlers {
+    function(server_name)
+        require("lspconfig")[server_name].setup {
+            capabilities = capabilities,
+        }
+    end,
+}

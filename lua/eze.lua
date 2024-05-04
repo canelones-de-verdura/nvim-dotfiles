@@ -49,11 +49,10 @@ vim.g.netrw_preview = 1
 vim.g.netrw_browse_split = 0
 vim.g.netrw_localcopydircmd = 'cp -r'
 -- Completion menu
-vim.opt.completeopt = "menu,menuone"
---vim.opt.completeopt = "menu,menuone,preview"
+vim.opt.completeopt = "menu,menuone,popup"
 vim.opt.pumblend = 15 -- Transparencia
 -- Binds
--- Faltan las de telescope, nvim-lspconfig y gitsigns. Esas están en configs/.
+-- Faltan varias de plugins. Esas están en /config
 -- Leader key
 vim.g.mapleader = " "
 -- Borro el resaltado de búsqueda con esc
@@ -81,6 +80,14 @@ vim.keymap.set("i", "<C-o>", "<C-x><C-o>")
 vim.keymap.set("i", "<C-f>", "<C-x><C-f>")
 -- Close completion
 vim.keymap.set("i", "<C-z>", "<C-x><C-z>")
+-- Jump in snippet
+vim.keymap.set({ 'i', 's' }, '<Tab>', function()
+    if vim.snippet.active({ direction = 1 }) then
+        return '<cmd>lua vim.snippet.jump(1)<cr>'
+    else
+        return '<Tab>'
+    end
+end, { expr = true })
 -- Autocommands
 -- Highlight when yanking (copying) text - Afanado de kickstart.nvim
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -92,4 +99,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 -- Varios
 vim.opt.updatetime = 50
-require("configs.statusline")
