@@ -17,4 +17,4 @@ require("eze")
 require("configs.statusline")
 
 --[[ Adjunto plugins ]]
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", { ui = { border = "double" } })
