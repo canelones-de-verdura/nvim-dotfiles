@@ -87,6 +87,7 @@ return {
         dependencies = {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
+            "hrsh7th/cmp-nvim-lsp",
         },
         config = function()
             require "configs.cmp"
@@ -96,10 +97,19 @@ return {
     {
         "neovim/nvim-lspconfig",
         event = { "BufReadPost", "BufNewFile" },
-        -- Completado de LSP
-        dependencies = { "hrsh7th/cmp-nvim-lsp" },
         config = function()
-            require "configs.lspconfig"
+            -- Keybinds, etc. Cosas específicas de lspconfig
+            require "configs.nvim-lspconfig"
+
+            -- Integramos con mason y nvim-cmp
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            require("mason-lspconfig").setup_handlers {
+                function(server_name)
+                    require("lspconfig")[server_name].setup {
+                        capabilities = capabilities,
+                    }
+                end,
+            }
         end,
     },
 }

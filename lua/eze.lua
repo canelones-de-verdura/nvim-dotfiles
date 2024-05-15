@@ -42,8 +42,8 @@ vim.opt.splitbelow = true
 -- Netrw
 vim.g.netrw_banner = 0
 vim.g.netrw_cursor = 0
-vim.g.netrw_keepdir = 0
-vim.g.netrw_liststyle = 3
+vim.g.netrw_keepdir = 1
+vim.g.netrw_liststyle = 0
 vim.g.netrw_winsize = 30
 vim.g.netrw_preview = 1
 vim.g.netrw_browse_split = 0
@@ -57,9 +57,8 @@ vim.opt.pumblend = 15 -- Transparencia
 vim.g.mapleader = " "
 -- Borro el resaltado de búsqueda con esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
--- Exploro archivos con espacio+e, espacio+l
+-- Exploro archivos con espacio+e
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>l", vim.cmd.Lex)
 -- Me muevo entre buffers
 vim.keymap.set("n", "<Tab>", vim.cmd.bn)
 vim.keymap.set("n", "<S-Tab>", vim.cmd.bp)
