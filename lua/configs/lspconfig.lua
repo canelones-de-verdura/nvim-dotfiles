@@ -4,7 +4,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(ev)
         -- Inlay hints
-        vcm.lsp.inlay_hint.enable()
+        vim.lsp.inlay_hint.enable()
 
         -- Íconos en los diagnósticos
         local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
