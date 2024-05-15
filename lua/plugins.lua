@@ -90,7 +90,7 @@ return {
             "hrsh7th/cmp-nvim-lsp",
         },
         config = function()
-            require "configs.cmp"
+            require "configs.nvim-cmp"
         end,
     },
 
