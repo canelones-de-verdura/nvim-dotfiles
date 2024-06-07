@@ -34,6 +34,7 @@ require("catppuccin").setup {
         telescope = {
             enabled = true,
         },
+        nvimtree = true,
     },
 }
 vim.cmd.colorscheme "catppuccin"

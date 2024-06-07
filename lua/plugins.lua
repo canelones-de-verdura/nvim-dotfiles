@@ -68,6 +68,19 @@ return {
         end,
     },
 
+    -- Nvim-Tree
+    {
+        "nvim-tree/nvim-tree.lua",
+        config = function()
+            require("nvim-tree").setup({
+                view = { width = 30 },
+            })
+                vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>")
+                vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>")
+                vim.keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>")
+                vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>")
+        end,
+    },
     -- LSP, autocomplete
     {
         "williamboman/mason.nvim",
