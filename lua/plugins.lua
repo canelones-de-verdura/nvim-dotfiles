@@ -74,6 +74,7 @@ return {
         config = function()
             require("nvim-tree").setup({
                 view = { width = 30 },
+                diagnostics = { enable = true },
             })
                 vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>")
                 vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>")
