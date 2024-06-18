@@ -76,10 +76,10 @@ return {
                 view = { width = 30 },
                 diagnostics = { enable = true },
             })
-                vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>")
-                vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>")
-                vim.keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>")
-                vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>")
+            vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>")
+            vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>")
+            vim.keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>")
+            vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>")
         end,
     },
     -- LSP, autocomplete
