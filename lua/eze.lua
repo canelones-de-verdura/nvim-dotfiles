@@ -26,7 +26,7 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 vim.opt.background = "light"
 -- Status line
-vim.opt.cmdheight = 0
+vim.opt.cmdheight = 1
 vim.opt.laststatus = 2
 vim.opt.showtabline = 1
 vim.opt.showmode = true
