@@ -194,7 +194,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     ui = { border = "double" },
     install = { colorscheme = { "habamax" } },
-    checker = { enabled = true },
+    checker = { enabled = false },
     rocks = { enabled = false },
     spec = {
         -- Colores
@@ -399,10 +399,7 @@ require("lazy").setup({
 
                         -- Configuración de diagnósticos
                         vim.diagnostic.config({
-                            virtual_text = {
-                                true,
-                                prefix = '● ',
-                            },
+                            virtual_text = true,
                             signs = true,
                             underline = true,
                             update_in_insert = false,
