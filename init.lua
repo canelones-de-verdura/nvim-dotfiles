@@ -1,6 +1,10 @@
 --[[ Config ]]
 -- Título de la terminal
 vim.opt.title = false
+-- Colores
+vim.cmd.colorscheme "habamax"
+vim.api.nvim_set_hl(0, 'FloatBorder', { link = 'Conceal' })
+vim.api.nvim_set_hl(0, 'ModeMsg', { link = 'MoreMsg' })
 -- Números de línea
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -24,7 +28,7 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 -- Colores
 vim.opt.termguicolors = true
-vim.opt.background = "light"
+vim.opt.background = "dark"
 -- Status line
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 2
@@ -97,15 +101,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Cambiar fondo de la terminal al fondo de Neovim
 vim.api.nvim_create_autocmd({ "UIEnter", "ColorScheme" }, {
-  callback = function()
-    local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
-    if not normal.bg then return end
-    io.write(string.format("\027]11;#%06x\027\\", normal.bg))
-  end,
+    callback = function()
+        local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
+        if not normal.bg then return end
+        io.write(string.format("\027]11;#%06x\027\\", normal.bg))
+    end,
 })
 
 vim.api.nvim_create_autocmd("UILeave", {
-  callback = function() io.write("\027]111\027\\") end,
+    callback = function() io.write("\027]111\027\\") end,
 })
 
 --[[ Statusline ]]
@@ -262,7 +266,7 @@ require("lazy").setup({
                     },
                 }
                 -- seteamos los colores
-                vim.cmd.colorscheme "catppuccin"
+                -- vim.cmd.colorscheme "habamax"
             end,
         },
 
