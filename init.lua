@@ -4,6 +4,9 @@ vim.opt.title = false
 -- Colores
 vim.cmd.colorscheme "habamax"
 vim.api.nvim_set_hl(0, 'FloatBorder', { link = 'Conceal' })
+vim.api.nvim_set_hl(0, 'VertSplit', { link = 'Conceal' })
+vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Conceal' })
+vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Conceal' })
 vim.api.nvim_set_hl(0, 'ModeMsg', { link = 'MoreMsg' })
 vim.api.nvim_set_hl(0, 'Normal', {
     fg = vim.api.nvim_get_hl(0, { name = 'Normal' }).fg,
@@ -185,7 +188,6 @@ end
 
 -- Armamos todo
 local statusline = {
-    "%#Conceal#",
     " %t%r%m",
     " %{%v:lua.Git()%} ",
     "%=", -- Mitad
