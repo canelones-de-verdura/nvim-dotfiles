@@ -12,6 +12,9 @@ vim.api.nvim_set_hl(0, 'Normal', {
     fg = vim.api.nvim_get_hl(0, { name = 'Normal' }).fg,
     bg = '#1e1e1e'
 })
+vim.api.nvim_set_hl(0, 'Visual', {
+    bg = vim.api.nvim_get_hl(0, { name = 'Pmenu' }).bg
+})
 -- Números de línea
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -295,7 +298,7 @@ require("lazy").setup({
             "nvim-tree/nvim-tree.lua",
             config = function()
                 require("nvim-tree").setup({
-                    view = { width = 30 },
+                    view = { width = 30, side = "right" },
                     diagnostics = { enable = true },
                 })
                 vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>")
