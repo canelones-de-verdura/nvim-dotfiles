@@ -1,17 +1,6 @@
 --[[ Config ]]
 -- Título de la terminal
 vim.opt.title = false
--- Colores
-vim.cmd.colorscheme "habamax"
-vim.api.nvim_set_hl(0, 'FloatBorder', { link = 'Conceal' })
-vim.api.nvim_set_hl(0, 'VertSplit', { link = 'Conceal' })
-vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Conceal' })
-vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'Conceal' })
-vim.api.nvim_set_hl(0, 'ModeMsg', { link = 'MoreMsg' })
-vim.api.nvim_set_hl(0, 'Normal', {
-    fg = vim.api.nvim_get_hl(0, { name = 'Normal' }).fg,
-    bg = '#1e1e1e'
-})
 -- Números de línea
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -35,7 +24,7 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 -- Colores
 vim.opt.termguicolors = true
-vim.opt.background = "dark"
+vim.opt.background = "light"
 -- Status line
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 2
@@ -231,7 +220,7 @@ require("lazy").setup({
                     -- Cambio el color de los recuadros, folds, etc
                     custom_highlights = function(colors)
                         return {
-                            netrwTreeBar = { fg = colors.overlay0 },
+                            NvimTreeStatusLine = { fg = colors.mantle, bg = colors.mantle },
                             FloatBorder = { fg = colors.overlay0 },
                             Folded = { fg = colors.overlay0, bg = colors.base }
                         }
@@ -272,7 +261,7 @@ require("lazy").setup({
                     },
                 }
                 -- seteamos los colores
-                -- vim.cmd.colorscheme "habamax"
+                vim.cmd.colorscheme "catppuccin"
             end,
         },
 
@@ -349,7 +338,7 @@ require("lazy").setup({
             "nvim-tree/nvim-tree.lua",
             config = function()
                 require("nvim-tree").setup({
-                    view = { width = 30 },
+                    view = { width = 30, side = "right" },
                     diagnostics = { enable = true },
                 })
                 vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>")
