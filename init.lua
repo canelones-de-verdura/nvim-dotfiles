@@ -217,12 +217,14 @@ require("lazy").setup({
             priority = 1000,
             config = function()
                 require("catppuccin").setup {
-                    -- Cambio el color de los recuadros, folds, etc
+                    -- Cambio el color de recuadros, folds, etc
                     custom_highlights = function(colors)
                         return {
                             NvimTreeStatusLine = { fg = colors.mantle, bg = colors.mantle },
                             FloatBorder = { fg = colors.overlay0 },
-                            Folded = { fg = colors.overlay0, bg = colors.base }
+                            Folded = { fg = colors.overlay0, bg = colors.base },
+                            StatusLine = { bg = colors.base },
+                            StatusLineNC = { bg = colors.base }
                         }
                     end,
                     flavour = "auto",
