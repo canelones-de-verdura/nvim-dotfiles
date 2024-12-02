@@ -212,6 +212,14 @@ require("lazy").setup({
     spec = {
         -- Colores
         {
+            "sainnhe/everforest",
+            priority = 100,
+            config = function ()
+                -- seteamos los colores
+                vim.cmd.colorscheme "everforest"
+            end
+        },
+        {
             "catppuccin/nvim",
             name = "catppuccin",
             priority = 1000,
@@ -263,7 +271,7 @@ require("lazy").setup({
                     },
                 }
                 -- seteamos los colores
-                vim.cmd.colorscheme "catppuccin"
+                -- vim.cmd.colorscheme "catppuccin"
             end,
         },
 
@@ -455,6 +463,21 @@ require("lazy").setup({
                             capabilities = capabilities,
                         }
                     end,
+                }
+
+                -- Configs específicas
+                require('lspconfig').pyright.setup {
+                    settings = {
+                        pyright = {
+                            disableOrganizeImports = true,
+                        },
+                        python = {
+                            analysis = {
+                                typeCheckingMode = "off",
+                                ignore = { '*' },
+                            },
+                        },
+                    },
                 }
             end,
         },
