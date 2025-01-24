@@ -1,6 +1,7 @@
 --[[ Config ]]
 -- Título de la terminal
 vim.opt.title = false
+
 -- Números de línea
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -9,6 +10,7 @@ vim.opt.signcolumn = "auto"
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = false
 vim.opt.colorcolumn = "0"
+
 -- Tabs
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -16,58 +18,74 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.breakindent = true
+
 -- El swap file me re rompe las bolas
 vim.opt.swapfile = false
 vim.opt.backup = false
+
 -- Opciones de búsqueda
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
+
 -- Colores
 vim.opt.termguicolors = true
-vim.opt.background = "light"
+vim.opt.background = "dark"
+
 -- Status line
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 2
 vim.opt.showtabline = 1
 vim.opt.showmode = true
+
 -- Folds
 vim.opt.fillchars = { fold = " " }
 vim.opt.foldmethod = "expr" -- expr en la config de treesitter
 vim.opt.foldenable = false
 vim.opt.foldlevel = 99
 vim.opt.foldcolumn = "0"
+
 -- Splits
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
 -- Netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
 -- Completion menu
 vim.opt.completeopt = "menu,menuone,popup"
 vim.opt.pumblend = 15 -- Transparencia
+
 -- Varios
 vim.opt.updatetime = 50
 
 --[[ Binds ]]
 -- Leader key
 vim.g.mapleader = " "
+
 -- Borro el resaltado de búsqueda con esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
 -- Exploro archivos con espacio+e
 -- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 -- Me muevo entre buffers
 vim.keymap.set("n", "<Tab>", vim.cmd.bn)
 vim.keymap.set("n", "<S-Tab>", vim.cmd.bp)
+
 -- Cierro buffers
 vim.keymap.set("n", "<leader>c", vim.cmd.bd)
+
 -- Mueven lo que esté seleccionado
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 -- Centran la vista mientras me desplazo
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
 -- Reemplaza la palabra bajo el cursor en todo el documento
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
 -- Jump in snippet
 vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
     if vim.snippet.active({ direction = 1 }) then
@@ -76,6 +94,7 @@ vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
         return "<S-Tab>"
     end
 end, { expr = true })
+
 -- Y para el otro lado
 vim.keymap.set({ "i", "s" }, "<Tab>", function()
     if vim.snippet.active({ direction = 1 }) then
@@ -93,19 +112,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.highlight.on_yank()
     end,
-})
-
--- Cambiar fondo de la terminal al fondo de Neovim
-vim.api.nvim_create_autocmd({ "UIEnter", "ColorScheme" }, {
-    callback = function()
-        local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
-        if not normal.bg then return end
-        io.write(string.format("\027]11;#%06x\027\\", normal.bg))
-    end,
-})
-
-vim.api.nvim_create_autocmd("UILeave", {
-    callback = function() io.write("\027]111\027\\") end,
 })
 
 --[[ Statusline ]]
@@ -214,65 +220,10 @@ require("lazy").setup({
         {
             "sainnhe/everforest",
             priority = 100,
-            config = function ()
+            config = function()
                 -- seteamos los colores
                 vim.cmd.colorscheme "everforest"
             end
-        },
-        {
-            "catppuccin/nvim",
-            name = "catppuccin",
-            priority = 1000,
-            config = function()
-                require("catppuccin").setup {
-                    -- Cambio el color de recuadros, folds, etc
-                    custom_highlights = function(colors)
-                        return {
-                            NvimTreeStatusLine = { fg = colors.mantle, bg = colors.mantle },
-                            FloatBorder = { fg = colors.overlay0 },
-                            Folded = { fg = colors.overlay0, bg = colors.base },
-                            StatusLine = { bg = colors.base },
-                            StatusLineNC = { bg = colors.base }
-                        }
-                    end,
-                    flavour = "auto",
-                    background = {
-                        light = "latte",
-                        dark = "frappe",
-                    },
-                    default_integrations = true,
-                    integrations = {
-                        cmp = true,
-                        treesitter = true,
-                        mason = true,
-                        markdown = true,
-                        native_lsp = {
-                            enabled = true,
-                            virtual_text = {
-                                errors = { "italic" },
-                                hints = { "italic" },
-                                warnings = { "italic" },
-                                information = { "italic" },
-                            },
-                            underlines = {
-                                errors = { "underline" },
-                                hints = { "underline" },
-                                warnings = { "underline" },
-                                information = { "underline" },
-                            },
-                            inlay_hints = {
-                                background = true,
-                            },
-                        },
-                        telescope = {
-                            enabled = true,
-                        },
-                        nvimtree = true,
-                    },
-                }
-                -- seteamos los colores
-                -- vim.cmd.colorscheme "catppuccin"
-            end,
         },
 
         {
@@ -284,13 +235,15 @@ require("lazy").setup({
                     highlight = { enable = true },
                     indent = { enable = true },
                     incremental_selection = {
-                        enable = true,
+                        enable = false,
+                        --[[
                         keymaps = {
                             init_selection = "gnn",
                             node_incremental = "grn",
                             scope_incremental = "grc",
                             node_decremental = "grm",
                         },
+                        ]]
                     },
                 }
                 -- Seteamos folding
@@ -360,40 +313,21 @@ require("lazy").setup({
 
         -- LSP, autocomplete
         {
-            "hrsh7th/nvim-cmp",
-            event = "InsertEnter",
-            -- Completado de palabras, rutas de archivos
-            dependencies = {
-                "hrsh7th/cmp-buffer",
-                "hrsh7th/cmp-path",
-                "hrsh7th/cmp-nvim-lsp",
+            "saghen/blink.cmp",
+            version = "*",
+            opts = {
+                keymap = { preset = "default" },
+
+                appearance = {
+                    use_nvim_cmp_as_default = true,
+                    nerd_font_variant = "mono"
+                },
+
+                sources = {
+                    default = { "lsp", "path", "snippets", "buffer" },
+                },
             },
-            config = function()
-                local cmp = require("cmp")
-                cmp.setup({
-                    snippet = {
-                        expand = function(args)
-                            vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
-                        end,
-                    },
-                    window = {
-                        completion = cmp.config.window.bordered(),
-                        documentation = cmp.config.window.bordered(),
-                    },
-                    mapping = cmp.mapping.preset.insert({
-                        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-                        ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                        ["<C-Space>"] = cmp.mapping.complete(),
-                        ["<C-e>"] = cmp.mapping.abort(),
-                        ["<CR>"] = cmp.mapping.confirm({ select = true }),
-                    }),
-                    sources = cmp.config.sources({
-                        { name = "nvim_lsp" },
-                        { name = "buffer" },
-                        { name = "path" },
-                    })
-                })
-            end,
+            opts_extend = { "sources.default" }
         },
 
         {
@@ -409,7 +343,11 @@ require("lazy").setup({
 
         {
             "neovim/nvim-lspconfig",
-            event = { "BufReadPost", "BufNewFile" },
+            dependencies = {
+                "williamboman/mason.nvim",
+                "williamboman/mason-lspconfig.nvim",
+                "saghen/blink.cmp"
+            },
             config = function()
                 -- Keybinds, etc. Cosas específicas de lspconfig
                 -- Use LspAttach autocommand to only map the following keys
@@ -456,7 +394,7 @@ require("lazy").setup({
                 })
 
                 -- Integramos con mason y nvim-cmp
-                local capabilities = require("cmp_nvim_lsp").default_capabilities()
+                local capabilities = require('blink.cmp').get_lsp_capabilities()
                 require("mason-lspconfig").setup_handlers {
                     function(server_name)
                         require("lspconfig")[server_name].setup {
