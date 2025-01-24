@@ -83,6 +83,10 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
+-- Me muevo en quickfix
+vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
+vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
+
 -- Reemplaza la palabra bajo el cursor en todo el documento
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
@@ -221,7 +225,6 @@ require("lazy").setup({
             "sainnhe/everforest",
             priority = 100,
             config = function()
-                -- seteamos los colores
                 vim.cmd.colorscheme "everforest"
             end
         },
@@ -234,17 +237,7 @@ require("lazy").setup({
                     auto_install = true,
                     highlight = { enable = true },
                     indent = { enable = true },
-                    incremental_selection = {
-                        enable = false,
-                        --[[
-                        keymaps = {
-                            init_selection = "gnn",
-                            node_incremental = "grn",
-                            scope_incremental = "grc",
-                            node_decremental = "grm",
-                        },
-                        ]]
-                    },
+                    incremental_selection = { enable = false },
                 }
                 -- Seteamos folding
                 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
@@ -344,6 +337,7 @@ require("lazy").setup({
         {
             "neovim/nvim-lspconfig",
             dependencies = {
+                -- más que nada para asegurarnos de que cargue todo antes de llegar acá
                 "williamboman/mason.nvim",
                 "williamboman/mason-lspconfig.nvim",
                 "saghen/blink.cmp"
