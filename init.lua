@@ -187,6 +187,7 @@ end
 
 -- Armamos todo
 local statusline = {
+    "%#Normal#",
     " %t%r%m",
     " %{%v:lua.Git()%} ",
     "%=", -- Mitad
