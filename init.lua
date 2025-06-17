@@ -1,3 +1,10 @@
+--[[
+
+    TODO ventanas flotantes
+    lua vim.api.nvim_open_win(0, true, {relative='win', row=3, col=3, width=100, height=24, border='rounded'})
+
+]]
+
 --[[ Config ]]
 -- Título de la terminal
 vim.opt.title = false
@@ -332,6 +339,11 @@ require("lazy").setup({
         },
 
         -- LSP, autocomplete
+        {
+            "rafamadriz/friendly-snippets",
+            -- lazy = true,
+        },
+
         {
             "saghen/blink.cmp",
             version = "*",
