@@ -29,7 +29,7 @@ vim.opt.incsearch = true
 
 -- Colores
 vim.opt.termguicolors = true
-vim.opt.background = "dark"
+vim.opt.background = "light"
 
 -- Status line
 vim.opt.cmdheight = 1
@@ -39,7 +39,19 @@ vim.opt.showmode = true
 
 -- Folds
 vim.opt.fillchars = { fold = " " }
-vim.opt.foldmethod = "expr" -- expr en la config de treesitter
+vim.opt.foldtext = ""
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- por default
+vim.api.nvim_create_autocmd('LspAttach', {         -- si se puede usamos lsp
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client:supports_method('textDocument/foldingRange') then
+            local win = vim.api.nvim_get_current_win()
+            vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+        end
+    end,
+})
+
 vim.opt.foldenable = false
 vim.opt.foldlevel = 99
 vim.opt.foldcolumn = "0"
@@ -58,6 +70,13 @@ vim.opt.pumblend = 15 -- Transparencia
 
 -- Varios
 vim.opt.updatetime = 50
+
+-- highlight cuando copiamos
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.hl.on_yank()
+    end,
+})
 
 --[[ Binds ]]
 -- Leader key
@@ -108,15 +127,6 @@ vim.keymap.set({ "i", "s" }, "<Tab>", function()
     end
 end, { expr = true })
 
---[[ Autocommands ]]
--- Highlight when yanking (copying) text - Afanado de kickstart.nvim
-vim.api.nvim_create_autocmd("TextYankPost", {
-    desc = "Highlight when yanking (copying) text",
-    group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-    callback = function()
-        vim.highlight.on_yank()
-    end,
-})
 
 --[[ Statusline ]]
 -- Cosas de Git
@@ -216,17 +226,28 @@ vim.opt.rtp:prepend(lazypath)
 
 --[[ Adjunto plugins ]]
 require("lazy").setup({
-    ui = { border = "double" },
+    ui = { border = "rounded" },
     install = { colorscheme = { "habamax" } },
     checker = { enabled = false },
     rocks = { enabled = false },
     spec = {
         -- Colores
         {
+            "catppuccin/nvim",
+            name = "catppuccin",
+            priority = 1000,
+            config = function()
+                require("catppuccin").setup({
+                    flavour = "frappe",
+                })
+                vim.cmd.colorscheme "catppuccin"
+            end
+        },
+        {
             "sainnhe/everforest",
             priority = 100,
             config = function()
-                vim.cmd.colorscheme "everforest"
+                -- vim.cmd.colorscheme "everforest"
             end
         },
 
@@ -238,10 +259,15 @@ require("lazy").setup({
                     auto_install = true,
                     highlight = { enable = true },
                     indent = { enable = true },
-                    incremental_selection = { enable = false },
+                    incremental_selection = {
+                        enable = true,
+                        keymaps = {
+                            -- incremental selection works from normal select mode
+                            node_incremental = "L",
+                            node_decremental = "H",
+                        }
+                    },
                 }
-                -- Seteamos folding
-                vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
             end,
         },
 
@@ -329,7 +355,7 @@ require("lazy").setup({
             dependencies = { "williamboman/mason-lspconfig.nvim" },
             config = function()
                 require("mason").setup({
-                    ui = { border = "double" }
+                    ui = { border = "rounded" }
                 })
                 require("mason-lspconfig").setup()
             end,
@@ -355,22 +381,32 @@ require("lazy").setup({
 
                         -- Configuración de diagnósticos
                         vim.diagnostic.config({
-                            virtual_text = true,
-                            signs = true,
+                            virtual_lines = true,
                             underline = true,
                             update_in_insert = false,
                             severity_sort = true,
+                            signs = {
+                                -- Coloreamos el número de línea, pero sin íconos
+                                text = {
+                                    [vim.diagnostic.severity.ERROR] = '',
+                                    [vim.diagnostic.severity.WARN] = '',
+                                    [vim.diagnostic.severity.INFO] = '',
+                                    [vim.diagnostic.severity.HINT] = '',
+                                },
+                                linehl = {
+                                    [vim.diagnostic.severity.ERROR] = 'Error',
+                                    [vim.diagnostic.severity.WARN] = 'Warning',
+                                    [vim.diagnostic.severity.INFO] = 'Info',
+                                    [vim.diagnostic.severity.HINT] = 'Hint',
+                                },
+                                numhl = {
+                                    [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+                                    [vim.diagnostic.severity.WARN] = 'WarningMsg',
+                                    [vim.diagnostic.severity.INFO] = 'InfoMsg',
+                                    [vim.diagnostic.severity.HINT] = 'HintMsg',
+                                },
+                            },
                         })
-
-                        -- Coloreamos el número de línea, pero sin íconos
-                        for _, diag in ipairs({ "Error", "Warn", "Info", "Hint" }) do
-                            vim.fn.sign_define("DiagnosticSign" .. diag, {
-                                text = "",
-                                texthl = "DiagnosticSign" .. diag,
-                                linehl = "",
-                                numhl = "DiagnosticSign" .. diag,
-                            })
-                        end
 
                         -- Binds personalizadas
                         local opts = { buffer = ev.buf }
@@ -399,7 +435,7 @@ require("lazy").setup({
                 }
 
                 -- Configs específicas
-                require('lspconfig').pyright.setup {
+                vim.lsp.config("pyright", {
                     settings = {
                         pyright = {
                             disableOrganizeImports = true,
@@ -411,7 +447,7 @@ require("lazy").setup({
                             },
                         },
                     },
-                }
+                })
             end,
         },
     },
