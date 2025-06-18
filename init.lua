@@ -436,15 +436,9 @@ require("lazy").setup({
                     end,
                 })
 
-                -- Integramos con mason y nvim-cmp
+                -- Integramos con blink
                 local capabilities = require('blink.cmp').get_lsp_capabilities()
-                require("mason-lspconfig").setup_handlers {
-                    function(server_name)
-                        require("lspconfig")[server_name].setup {
-                            capabilities = capabilities,
-                        }
-                    end,
-                }
+                vim.lsp.config("*", {capabilities = capabilities})
 
                 -- Configs específicas
                 vim.lsp.config("pyright", {
