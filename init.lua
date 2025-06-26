@@ -89,14 +89,30 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Leader key
 vim.g.mapleader = " "
 
+-- Esc
+vim.keymap.set("i", "jj", "<Esc>")
+vim.keymap.set("t", "jj", "<C-\\><C-n>")
+
 -- Borro el resaltado de búsqueda con esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
--- Exploro archivos con espacio+e
--- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 -- Me muevo entre buffers
 vim.keymap.set("n", "<Tab>", vim.cmd.bn)
 vim.keymap.set("n", "<S-Tab>", vim.cmd.bp)
+
+-- Ventanas
+vim.keymap.set("n", "<M-+>", "<C-w>+")
+vim.keymap.set("n", "<M-->", "<C-w>-")
+vim.keymap.set("n", "<M-<>", "<C-w><")
+vim.keymap.set("n", "<M->>", "<C-w>>")
+vim.keymap.set("n", "<M-k>", "<C-w>k")
+vim.keymap.set("n", "<M-j>", "<C-w>j")
+vim.keymap.set("n", "<M-l>", "<C-w>l")
+vim.keymap.set("n", "<M-h>", "<C-w>h")
+vim.keymap.set("n", "<M-K>", "<C-w>K")
+vim.keymap.set("n", "<M-J>", "<C-w>J")
+vim.keymap.set("n", "<M-L>", "<C-w>L")
+vim.keymap.set("n", "<M-H>", "<C-w>H")
 
 -- Cierro buffers
 vim.keymap.set("n", "<leader>c", vim.cmd.bd)
@@ -110,8 +126,8 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Me muevo en quickfix
-vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
-vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
+vim.keymap.set("n", "<M-n>", "<cmd>cnext<CR>")
+vim.keymap.set("n", "<M-p>", "<cmd>cprev<CR>")
 
 -- Reemplaza la palabra bajo el cursor en todo el documento
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -204,7 +220,7 @@ end
 
 -- Armamos todo
 local statusline = {
-    "%#Normal#",
+    -- "%#Normal#",
     " %t%r%m",
     " %{%v:lua.Git()%} ",
     "%=", -- Mitad
@@ -438,7 +454,7 @@ require("lazy").setup({
 
                 -- Integramos con blink
                 local capabilities = require('blink.cmp').get_lsp_capabilities()
-                vim.lsp.config("*", {capabilities = capabilities})
+                vim.lsp.config("*", { capabilities = capabilities })
 
                 -- Configs específicas
                 vim.lsp.config("pyright", {
