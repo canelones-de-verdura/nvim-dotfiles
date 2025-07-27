@@ -1,10 +1,3 @@
---[[
-
-    TODO ventanas flotantes
-    lua vim.api.nvim_open_win(0, true, {relative='win', row=3, col=3, width=100, height=24, border='rounded'})
-
-]]
-
 --[[ Config ]]
 -- Título de la terminal
 vim.opt.title = false
@@ -36,7 +29,7 @@ vim.opt.incsearch = true
 
 -- Colores
 vim.opt.termguicolors = true
-vim.opt.background = "light"
+vim.opt.background = "dark"
 
 -- Status line
 vim.opt.cmdheight = 1
@@ -90,8 +83,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.g.mapleader = " "
 
 -- Esc
-vim.keymap.set("i", "jj", "<Esc>")
-vim.keymap.set("t", "jj", "<C-\\><C-n>")
+vim.keymap.set("i", "jk", "<Esc>")
+vim.keymap.set("t", "jk", "<C-\\><C-n>")
 
 -- Borro el resaltado de búsqueda con esc
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -256,23 +249,32 @@ require("lazy").setup({
     spec = {
         -- Colores
         {
-            "catppuccin/nvim",
-            name = "catppuccin",
+            "sainnhe/sonokai",
             priority = 1000,
             config = function()
-                require("catppuccin").setup({
-                    flavour = "frappe",
-                })
-                vim.cmd.colorscheme "catppuccin"
+                vim.cmd("let g:sonokai_better_performance = 1")
+                vim.cmd("let g:sonokai_enable_italic = 1")
+                vim.cmd("colorscheme sonokai")
             end
         },
-        {
-            "sainnhe/everforest",
-            priority = 100,
-            config = function()
-                -- vim.cmd.colorscheme "everforest"
-            end
-        },
+        -- {
+        --     "catppuccin/nvim",
+        --     name = "catppuccin",
+        --     priority = 1000,
+        --     config = function()
+        --         require("catppuccin").setup({
+        --             flavour = "frappe",
+        --         })
+        --        vim.cmd.colorscheme "catppuccin"
+        --     end
+        -- },
+        -- {
+        --     "sainnhe/everforest",
+        --     priority = 100,
+        --     config = function()
+        --         vim.cmd.colorscheme "everforest"
+        --     end
+        -- },
 
         {
             "nvim-treesitter/nvim-treesitter",
